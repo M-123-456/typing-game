@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Typography */
+body {
+  font-family: monospace, serif;
+  font-size: 2rem;
+}
+
+textarea {
+  font-size: 1.5rem;
+}
+
+.text,
+#input-field {
+  color: white;
+}
+
+/* Layout */
+body {
+  background-color: #297373;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.typing-game-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 30rem;
+  max-width: 40rem;
+  min-height: 20rem;
+}
+
+.typing-game-div,
+#input-field {
+  border: #e9d758 solid 5px;
+  border-radius: 1.3rem;
+  padding: 1rem;
+}
+.text,
+#input-field {
+  padding: 1rem;
+  min-height: 8rem;
+  width: 90%;
+}
+
+/* Components */
+#input-field {
+  background-color: transparent;
+  resize: none;
+}
+
+#input-field:focus {
+  outline: #ff8552 solid 5px;
+  border: none;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+.correct {
+  color: #bfdbf7;
+}
+
+.incorrect {
+  color: #8c1c13;
+}
