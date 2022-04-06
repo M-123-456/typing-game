@@ -1,5 +1,6 @@
 let textField = document.querySelector(".text");
 let inputField = document.getElementById("input-field");
+let hasPressedEnterKey = false;
 
 // Texts shown
 const texts = [
@@ -12,12 +13,9 @@ const texts = [
 
 getNewText();
 
-const hasPressedEnterKey = false;
-
 function enterKeyPressed(event) {
   if (event.keyCode === 13) {
-    console.log("enter key is pressed");
-    return (enterKeyPressed = true);
+    hasPressedEnterKey = true;
   }
 }
 
@@ -41,7 +39,8 @@ inputField.addEventListener("input", () => {
       isCorrect = false;
     }
   });
-  if (isCorrect) getNewText();
+  if (isCorrect && hasPressedEnterKey) getNewText();
+  hasPressedEnterKey = false;
 });
 
 // show new text by pressing enter key
