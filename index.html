@@ -5,16 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
+    <script type="module" src="script.js" defer></script>
     <title>Typing game</title>
   </head>
   <body>
+    <nav>
+      <ul>
+        <li>レベル</li>
+        <ul id="levels"></ul>
+        <li>ことば</li>
+        <ul id="languages"></ul>
+      </ul>
+    </nav>
     <div class="typing-game-div">
       <div class="text"></div>
-      <textarea
-        id="input-field"
-        onkeypress="return enterKeyPressed(event)"
-      ></textarea>
+      <textarea id="input-field"></textarea>
     </div>
   </body>
 </html>

@@ -33,13 +33,15 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top: 3rem;
   min-width: 30rem;
   max-width: 40rem;
   min-height: 20rem;
 }
 
 .typing-game-div,
-#input-field {
+#input-field,
+nav li {
   border: #e9d758 solid 5px;
   border-radius: 1.3rem;
   padding: 1rem;
@@ -52,6 +54,39 @@ body {
 }
 
 /* Components */
+nav {
+  position: fixed;
+  top: 0;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav li {
+  list-style: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+}
+
+nav li:hover {
+  background-color: #e9d758;
+  color: #297373;
+}
+
+/* .hidden {
+  display: none;
+} */
+
+#levels {
+  
+}
+
+nav li:hover .hidden {
+  display: block;
+}
+
 #input-field {
   background-color: transparent;
   resize: none;

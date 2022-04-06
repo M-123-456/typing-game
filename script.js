@@ -1,23 +1,39 @@
+import { texts } from "./texts.js";
+
 let textField = document.querySelector(".text");
 let inputField = document.getElementById("input-field");
+const levelsList = document.getElementById("levels");
+const languagesList = document.getElementById("languages");
 let hasPressedEnterKey = false;
 
-// Texts shown
-const texts = [
-  "Hallo!",
-  "Guten Tag.",
-  "Ich bin Tomoki",
-  "Wie heißt du?",
-  "こんにちは。",
-];
+// Navigation bar acordion
+const levels = new Set(texts.map((text) => text.level));
+console.log(levels);
+levels.forEach((level) => {
+  const list = document.createElement("li");
+  list.innerText = level;
+  levelsList.appendChild(list);
+  list.classList.add("hidden");
+});
+
+const languages = new Set(texts.map((text) => text.language));
+console.log(languages);
+languages.forEach((language) => {
+  const list = document.createElement("li");
+  list.innerText = language;
+  languagesList.appendChild(list);
+  list.classList.add("hidden");
+});
 
 getNewText();
 
-function enterKeyPressed(event) {
-  if (event.keyCode === 13) {
+// if enter key is pressed, hasPressedEnterKey is set true
+inputField.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    console.log("enter is pressed");
     hasPressedEnterKey = true;
   }
-}
+});
 
 inputField.addEventListener("input", () => {
   const arrayTextField = textField.querySelectorAll("span");
@@ -43,13 +59,13 @@ inputField.addEventListener("input", () => {
   hasPressedEnterKey = false;
 });
 
-// show new text by pressing enter key
+// show new text
 function getNewText() {
   textField.innerText = null;
   // random Number
   const randomNumber = Math.floor(Math.random() * texts.length);
   const newText = texts[randomNumber];
-  newText.split("").forEach((char) => {
+  newText.text.split("").forEach((char) => {
     const charSpan = document.createElement("span");
     charSpan.innerText = char;
     textField.appendChild(charSpan);
