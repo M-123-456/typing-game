@@ -1,61 +1,61 @@
 export const texts = [
   {
-    language: "Japanese",
+    language: "にほんご",
     text: "こんにちは。",
     level: 1,
   },
   {
-    language: "Japanese",
+    language: "にほんご",
     text: "おはようございます。",
     level: 1,
   },
   {
-    language: "Japanese",
+    language: "にほんご",
     text: "こんばんは。",
     level: 1,
   },
   {
-    language: "Japanese",
+    language: "にほんご",
     text: "いただきます。",
     level: 1,
   },
   {
-    language: "Japanese",
+    language: "にほんご",
     text: "ごちそうさまでした。",
     level: 1,
   },
   {
-    language: "Japanese",
+    language: "にほんご",
     text: "あひるのさんぽ",
     level: 1,
   },
   {
-    language: "Japanese",
+    language: "にほんご",
     text: "ぞうのおどり",
     level: 1,
   },
   {
-    language: "Japanese",
+    language: "にほんご",
     text: "イルカのひるね",
     level: 1,
   },
   {
-    language: "Japanese",
+    language: "にほんご",
     text: "らくだのしょくじ",
     level: 1,
   },
   {
-    language: "Japanese",
+    language: "にほんご",
     text: "ラマのきゅうけい",
     level: 1,
   },
   {
-    language: "Japanese",
+    language: "にほんご",
     text: "川でおよぐ",
     level: 2,
   },
   {
-    language: "German",
+    language: "Deutsch",
     text: "Ich bin Tomoki.",
     level: 1,
   },
