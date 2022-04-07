@@ -72,34 +72,24 @@ nav li {
   margin: 0.5rem;
 }
 
-nav li:hover {
+nav li:hover,
+nav li:hover select {
   background-color: #e9d758;
   color: #297373;
 }
 
-.nav-accordion {
-  display: none;
+select {
+  background-color: #297373;
+  font-size: 2rem;
+  width: 90%;
+  color: white;
+  border: none;
+  outline: none;
 }
 
-.nav-label {
-  display: block;
-  text-align: center;
-  display: block;
-  margin-bottom: 0.5rem;
-  padding: 0.1rem 0.2rem;
-}
-
-.nav-content {
-  height: 0;
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.5s;
-}
-
-.nav-accordion:checked + .nav-label + .nav-content {
-  height: 6rem;
-  opacity: 1;
-  visibility: visible;
+option {
+  margin-top: 1rem;
+  padding: 1rem;
 }
 
 .hidden {
@@ -109,6 +99,10 @@ nav li:hover {
 
 .hidden:hover {
   color: white;
+}
+
+.hidden:active {
+  color: #297373;
 }
 
 #input-field {

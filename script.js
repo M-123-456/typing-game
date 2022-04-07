@@ -12,26 +12,29 @@ let language = "Japanese";
 const levels = new Set(texts.map((text) => text.level));
 console.log(levels);
 levels.forEach((level) => {
-  const list = document.createElement("div");
+  const list = document.createElement("option");
   list.innerText = level;
   levelsList.appendChild(list);
   list.classList.add("hidden");
+  list.value = level;
 });
 
 const languages = new Set(texts.map((text) => text.language));
 console.log(languages);
 languages.forEach((language) => {
-  const list = document.createElement("div");
+  const list = document.createElement("option");
   list.innerText = language;
   languagesList.appendChild(list);
   list.classList.add("hidden");
+  list.value = language;
 });
 
-getNewText();
-
 const levelHiddenBtns = document.getElementById("levels").children;
+for (const level of levelHiddenBtns) {
+  console.log(level.innerHTML);
+}
 
-
+document.addEventListener("DOMContentLoaded", getNewText);
 
 // if enter key is pressed, hasPressedEnterKey is set true
 inputField.addEventListener("keypress", (e) => {
