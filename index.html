@@ -11,10 +11,18 @@
   <body>
     <nav>
       <ul>
-        <li>レベル</li>
-        <ul id="levels"></ul>
-        <li>ことば</li>
-        <ul id="languages"></ul>
+        <li>
+          <!-- level -->
+          <input id="level-btn" class="nav-accordion" type="checkbox" />
+          <label for="level-btn" class="nav-label">レベル</label>
+          <div id="levels" class="nav-content"></div>
+        </li>
+        <li>
+          <!-- language -->
+          <input id="language-btn" class="nav-accordion" type="checkbox" />
+          <label for="language-btn" class="nav-label">ことば</label>
+          <div id="languages" class="nav-content"></div>
+        </li>
       </ul>
     </nav>
     <div class="typing-game-div">

@@ -5,12 +5,14 @@ let inputField = document.getElementById("input-field");
 const levelsList = document.getElementById("levels");
 const languagesList = document.getElementById("languages");
 let hasPressedEnterKey = false;
+let level = 1;
+let language = "Japanese";
 
-// Navigation bar acordion
+// Adding items to navigation bar acordion
 const levels = new Set(texts.map((text) => text.level));
 console.log(levels);
 levels.forEach((level) => {
-  const list = document.createElement("li");
+  const list = document.createElement("div");
   list.innerText = level;
   levelsList.appendChild(list);
   list.classList.add("hidden");
@@ -19,13 +21,17 @@ levels.forEach((level) => {
 const languages = new Set(texts.map((text) => text.language));
 console.log(languages);
 languages.forEach((language) => {
-  const list = document.createElement("li");
+  const list = document.createElement("div");
   list.innerText = language;
   languagesList.appendChild(list);
   list.classList.add("hidden");
 });
 
 getNewText();
+
+const levelHiddenBtns = document.getElementById("levels").children;
+
+
 
 // if enter key is pressed, hasPressedEnterKey is set true
 inputField.addEventListener("keypress", (e) => {

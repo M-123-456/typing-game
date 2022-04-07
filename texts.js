@@ -54,4 +54,9 @@ export const texts = [
     text: "川でおよぐ",
     level: 2,
   },
+  {
+    language: "German",
+    text: "Ich bin Tomoki.",
+    level: 1,
+  },
 ];
