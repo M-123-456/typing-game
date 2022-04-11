@@ -29,6 +29,7 @@ body {
 }
 
 .typing-game-div {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,6 +40,20 @@ body {
   min-height: 20rem;
 }
 
+footer {
+  position: fixed;
+  bottom: 0.5rem;
+  right: 2rem;
+  font-size: 1rem;
+  color: white;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Components */
 .typing-game-div,
 #input-field,
 nav li {
@@ -52,8 +67,6 @@ nav li {
   min-height: 8rem;
   width: 90%;
 }
-
-/* Components */
 nav {
   position: fixed;
   top: 1rem;
@@ -68,7 +81,7 @@ nav ul {
 nav li {
   list-style: none;
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 2rem;
   margin: 0.5rem;
 }
 
@@ -81,15 +94,17 @@ nav li:hover select {
 select {
   background-color: #297373;
   font-size: 2rem;
-  width: 90%;
+  width: 10rem;
   color: white;
   border: none;
   outline: none;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 option {
   margin-top: 1rem;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .hidden {
@@ -125,4 +140,40 @@ option {
 
 .incorrect {
   color: #8c1c13;
+}
+
+#icon1,
+#icon2 {
+  display: none;
+}
+
+.icon1 {
+  position: absolute;
+  top: -2rem;
+  right: -2rem;
+  opacity: 1;
+  animation: 1s ease-in-out scaling-icons;
+}
+
+.icon2 {
+  position: absolute;
+  bottom: -2rem;
+  left: -2rem;
+  opacity: 1;
+  animation: 1s ease-in-out scaling-icons;
+}
+
+@keyframes scaling-icons {
+  10% {
+    transform: scale(2);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  70% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

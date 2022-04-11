@@ -4,7 +4,11 @@ let textField = document.querySelector(".text");
 let inputField = document.getElementById("input-field");
 const levelsList = document.getElementById("levels");
 const languagesList = document.getElementById("languages");
+const icon1 = document.getElementById("icon1");
+const icon2 = document.getElementById("icon2");
 let hasPressedEnterKey = false;
+
+// initial level and language
 let level = 1;
 let language = "Japanese";
 
@@ -29,12 +33,10 @@ languages.forEach((language) => {
   list.value = language;
 });
 
-const levelHiddenBtns = document.getElementById("levels").children;
-for (const level of levelHiddenBtns) {
-  console.log(level.innerHTML);
-}
-
+// get new Text as soon as the site is loaded
 document.addEventListener("DOMContentLoaded", getNewText);
+
+// get level and language and modify array
 
 // if enter key is pressed, hasPressedEnterKey is set true
 inputField.addEventListener("keypress", (e) => {
@@ -44,6 +46,7 @@ inputField.addEventListener("keypress", (e) => {
   }
 });
 
+// check if the input is right one by one
 inputField.addEventListener("input", () => {
   const arrayTextField = textField.querySelectorAll("span");
   const arrayValue = inputField.value.split("");
@@ -64,7 +67,11 @@ inputField.addEventListener("input", () => {
       isCorrect = false;
     }
   });
-  if (isCorrect && hasPressedEnterKey) getNewText();
+  // show next text when the input is right and enter key is pressed
+  if (isCorrect && hasPressedEnterKey) {
+    getNewText();
+    showAnimation();
+  }
   hasPressedEnterKey = false;
 });
 
@@ -81,3 +88,11 @@ function getNewText() {
     inputField.value = null;
   });
 }
+
+// animation
+function showAnimation() {
+  icon1.classList.add("icon1");
+  icon2.classList.add("icon2");
+}
+
+showAnimation();
