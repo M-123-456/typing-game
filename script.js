@@ -4,8 +4,8 @@ let textField = document.querySelector(".text");
 let inputField = document.getElementById("input-field");
 const levelsList = document.getElementById("levels");
 const languagesList = document.getElementById("languages");
-const icon1 = document.getElementById("icon1");
-const icon2 = document.getElementById("icon2");
+const icon1 = document.querySelector(".icon1");
+const icon2 = document.querySelector(".icon2");
 let hasPressedEnterKey = false;
 
 // initial level and language
@@ -72,6 +72,8 @@ inputField.addEventListener("input", () => {
     getNewText();
     showAnimation();
   }
+
+  // reset
   hasPressedEnterKey = false;
 });
 
@@ -91,8 +93,8 @@ function getNewText() {
 
 // animation
 function showAnimation() {
-  icon1.classList.add("icon1");
-  icon2.classList.add("icon2");
+  icon1.src = "./assets/icons8-sparkling-100.png";
+  icon2.src = "./assets/icons8-sparkling-100.png";
+  icon1.classList.add("icon1Animation");
+  icon2.classList.add("icon2Animation");
 }
-
-showAnimation();

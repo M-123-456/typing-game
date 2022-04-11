@@ -142,25 +142,25 @@ option {
   color: #8c1c13;
 }
 
-#icon1,
-#icon2 {
+.icon1,
+.icon2 {
   display: none;
 }
 
-.icon1 {
+.icon1Animation,
+.icon2Animation {
+  display: block;
   position: absolute;
-  top: -2rem;
-  right: -2rem;
-  opacity: 1;
   animation: 1s ease-in-out scaling-icons;
 }
 
-.icon2 {
-  position: absolute;
-  bottom: -2rem;
+.icon1Animation {
+  top: -2rem;
+  right: -2rem;
+}
+.icon2Animation {
+  bottom: -4rem;
   left: -2rem;
-  opacity: 1;
-  animation: 1s ease-in-out scaling-icons;
 }
 
 @keyframes scaling-icons {
