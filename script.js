@@ -4,15 +4,16 @@ let textField = document.querySelector(".text");
 let inputField = document.getElementById("input-field");
 const levelsList = document.getElementById("levels");
 const languagesList = document.getElementById("languages");
-const icon1 = document.querySelector(".icon1");
-const icon2 = document.querySelector(".icon2");
+const animationDiv = document.querySelector(".animation");
+
 let hasPressedEnterKey = false;
+let typedCorrectly = 0;
 
 // initial level and language
 let level = 1;
 let language = "Japanese";
 
-// Adding items to navigation bar acordion
+// Adding items to navigation bar accordion
 const levels = new Set(texts.map((text) => text.level));
 console.log(levels);
 levels.forEach((level) => {
@@ -69,8 +70,13 @@ inputField.addEventListener("input", () => {
   });
   // show next text when the input is right and enter key is pressed
   if (isCorrect && hasPressedEnterKey) {
+    typedCorrectly += 1;
     getNewText();
-    showAnimation();
+  }
+  console.log(typedCorrectly);
+  if (typedCorrectly === 10) {
+    animation();
+    typedCorrectly = 0;
   }
 
   // reset
@@ -91,10 +97,28 @@ function getNewText() {
   });
 }
 
-// animation
-function showAnimation() {
-  icon1.src = "./assets/icons8-sparkling-100.png";
-  icon2.src = "./assets/icons8-sparkling-100.png";
-  icon1.classList.add("icon1Animation");
-  icon2.classList.add("icon2Animation");
+function animation() {
+  for (let i = 0; i <= 40; i++) {
+    const animationImg = document.createElement("img");
+    animationImg.classList.add("animationImg");
+    animationImg.src = "./assets/icons8-sparkling-100.png";
+    animationDiv.appendChild(animationImg);
+  }
+
+  anime({
+    targets: ".animationImg",
+    translateX: function () {
+      return anime.random(-500, 500);
+    },
+    translateY: function () {
+      return anime.random(-500, 500);
+    },
+    scale: function () {
+      return anime.random(0.2, 1.5);
+    },
+    duration: 2500,
+    delay: anime.stagger(15),
+   
+  });
 }
+
