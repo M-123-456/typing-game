@@ -4,11 +4,16 @@ let textField = document.querySelector(".text");
 let inputField = document.getElementById("input-field");
 const levelsList = document.getElementById("levels");
 const languagesList = document.getElementById("languages");
+const animationDiv = document.querySelector(".animation");
+
 let hasPressedEnterKey = false;
+let typedCorrectly = 0;
+
+// initial level and language
 let level = 1;
 let language = "Japanese";
 
-// Adding items to navigation bar acordion
+// Adding items to navigation bar accordion
 const levels = new Set(texts.map((text) => text.level));
 console.log(levels);
 levels.forEach((level) => {
@@ -29,12 +34,10 @@ languages.forEach((language) => {
   list.value = language;
 });
 
-const levelHiddenBtns = document.getElementById("levels").children;
-for (const level of levelHiddenBtns) {
-  console.log(level.innerHTML);
-}
-
+// get new Text as soon as the site is loaded
 document.addEventListener("DOMContentLoaded", getNewText);
+
+// get level and language and modify array
 
 // if enter key is pressed, hasPressedEnterKey is set true
 inputField.addEventListener("keypress", (e) => {
@@ -44,6 +47,7 @@ inputField.addEventListener("keypress", (e) => {
   }
 });
 
+// check if the input is right one by one
 inputField.addEventListener("input", () => {
   const arrayTextField = textField.querySelectorAll("span");
   const arrayValue = inputField.value.split("");
@@ -64,7 +68,18 @@ inputField.addEventListener("input", () => {
       isCorrect = false;
     }
   });
-  if (isCorrect && hasPressedEnterKey) getNewText();
+  // show next text when the input is right and enter key is pressed
+  if (isCorrect && hasPressedEnterKey) {
+    typedCorrectly += 1;
+    getNewText();
+  }
+  console.log(typedCorrectly);
+  if (typedCorrectly === 10) {
+    animation();
+    typedCorrectly = 0;
+  }
+
+  // reset
   hasPressedEnterKey = false;
 });
 
@@ -79,5 +94,29 @@ function getNewText() {
     charSpan.innerText = char;
     textField.appendChild(charSpan);
     inputField.value = null;
+  });
+}
+
+function animation() {
+  for (let i = 0; i <= 40; i++) {
+    const animationImg = document.createElement("img");
+    animationImg.classList.add("animationImg");
+    animationImg.src = "./assets/icons8-sparkling-100.png";
+    animationDiv.appendChild(animationImg);
+  }
+
+  anime({
+    targets: ".animationImg",
+    translateX: function () {
+      return anime.random(-500, 500);
+    },
+    translateY: function () {
+      return anime.random(-500, 500);
+    },
+    scale: function () {
+      return anime.random(0.2, 1.5);
+    },
+    duration: 2500,
+    delay: anime.stagger(15),
   });
 }

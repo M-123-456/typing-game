@@ -29,6 +29,7 @@ body {
 }
 
 .typing-game-div {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,6 +40,20 @@ body {
   min-height: 20rem;
 }
 
+footer {
+  position: fixed;
+  bottom: 0.5rem;
+  right: 2rem;
+  font-size: 1rem;
+  color: white;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Components */
 .typing-game-div,
 #input-field,
 nav li {
@@ -52,8 +67,6 @@ nav li {
   min-height: 8rem;
   width: 90%;
 }
-
-/* Components */
 nav {
   position: fixed;
   top: 1rem;
@@ -68,7 +81,7 @@ nav ul {
 nav li {
   list-style: none;
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 2rem;
   margin: 0.5rem;
 }
 
@@ -81,15 +94,17 @@ nav li:hover select {
 select {
   background-color: #297373;
   font-size: 2rem;
-  width: 90%;
+  width: 10rem;
   color: white;
   border: none;
   outline: none;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 option {
   margin-top: 1rem;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .hidden {
@@ -126,3 +141,14 @@ option {
 .incorrect {
   color: #8c1c13;
 }
+
+.animationImg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+
