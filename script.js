@@ -118,7 +118,5 @@ function animation() {
     },
     duration: 2500,
     delay: anime.stagger(15),
-   
   });
 }
-
